@@ -5,6 +5,11 @@ function increaseCount() {
   displayCount(); // Display the count
   checkCountValue(); // Check count value and display messages
 }
+function resetCount(){
+    count = 0;
+    displayCount(); // Display the count
+    alert("You reset you followers counter");
+}
 function checkCountValue() {
   if (count === 10) {
     alert("Your Instagram post gained 10 followers! Congratulations!");
