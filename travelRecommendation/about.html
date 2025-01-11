@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelBloom Navbar</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #2d3e50, #1c2a37);
+            padding: 10px 20px;
+            color: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Logo section */
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar .logo span {
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* Menu items */
+        .navbar .menu {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar .menu li {
+            margin: 0 15px;
+        }
+
+        .navbar .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navbar .menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Search bar */
+        .navbar .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            border-radius: 20px;
+            padding: 5px 10px;
+        }
+
+        .navbar .search-bar input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 5px;
+            border-radius: 20px;
+            font-size: 14px;
+            width: 250px;
+        }
+
+        .navbar .search-bar input::placeholder {
+            color: #777;
+        }
+
+        .navbar .search-bar button {
+            border: none;
+            background-color: #1c887a;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .navbar .search-bar button.clear-btn {
+            background-color: #b52d1f;
+        }
+
+        .navbar .search-bar button:hover {
+            opacity: 0.9;
+        }
+
+        /* Fullscreen Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('./new_york_city.jpg') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            padding: 20px;
+        }
+
+        /* Overlay for Background Dim */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1); 
+            z-index: 1;
+        }
+
+        /* Content inside Hero Section */
+
+        /* Position hero content to the left */
+        .hero-content {
+            position: relative;
+            left: 5%; /*  Adjust the distance from the left edge */
+            transform: translateY(-50%);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            line-height: 1.2;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .hero-content .paragrah {
+            background: rgba(0, 0, 0, 0.3); 
+        }
+        .hero-content .paragrah p{
+            font-size: 1rem;
+            margin: 20px 0;
+            line-height: 1.5;
+            color: white;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        .hero-content .cta-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1c887a;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .hero-content .cta-btn:hover {
+            background-color: #145c54;
+        }
+
+        /* Social Media Sidebar */
+        .social-icons {
+            position: absolute;
+            top: 70%;
+            left: 20px;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Icon Styling */
+        .social-icons a {
+            text-decoration: none;
+            color: white; /* White color for the icons */
+            font-size: 24px; /* Icon size */
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.2); /* Transparent circle background */
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        /* Hover Effect */
+        .social-icons a:hover {
+            background-color: rgba(255, 255, 255, 0.4); /* Slightly lighter on hover */
+        }
+        .our-team {
+            position : relative;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .our-team::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1); 
+            z-index: 1;
+        }
+
+        .our-team h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .team-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.1); 
+        }
+
+        .team-member {
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            background: rgba(0, 0, 0, 0.2); 
+            color: white;
+        }
+
+        .team-member img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            
+        }
+
+        .team-member h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .team-member .role {
+            display: inline-block;
+            padding: 5px 10px;
+            background: rgba(20, 2, 158, 0.7); 
+            color: white;
+            border-radius: 5px;
+            font-size: 0.8rem;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- Logo -->
+        <div class="logo">
+            <img src="./logo.jpeg" alt="Logo">
+            <span>TravelStephane</span>
+        </div>
+
+        <!-- Menu items -->
+        <ul class="menu">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+
+    </nav>
+    <div class="hero">
+        <!-- Social Media Links -->
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com" target="_blank" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://youtube.com" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1><br>ABOUT US<br></h1>
+            <div class="paragrah">
+                <p>We are passionate about turning your travel dreams into reality. Our mission is to deliver unforgettable travel experiences tailored to your unique preferences and desires.</p>
+                <p>With years of expertise in the travel industry, we have helped countless adventurers explore the world’s most breathtaking destinations. Whether you’re looking for serene beaches, bustling cityscapes, or thrilling adventures, we are here to craft the perfect itinerary for you.</p>
+            </div>
+        </div>
+
+        <div class="our-team">
+            <h2>Our Team</h2>
+            <div class="team-container">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/80" alt="John Doe">
+                    <h3>John Doe</h3>
+                    <p>John is responsible for...</p>
+                    <div class="role">CEO</div>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/80" alt="Celina Thomas">
+                    <h3>Celina Thomas</h3>
+                    <p>Celina is responsible for...</p>
+                    <div class="role">Team Lead</div>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/80" alt="Mike Tysen">
+                    <h3>Mike Tysen</h3>
+                    <p>Mike is responsible for...</p>
+                    <div class="role">Delivery Head</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./travel_recommendation.js"></script>
+</html>
